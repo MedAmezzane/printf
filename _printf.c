@@ -21,7 +21,8 @@ int _printf(const char *format, ...)
 		{"%s", printf_string},
 		{"%%", printf_37},
 		{"%i", printf_int},
-		{"%d", printf_dec}
+		{"%d", printf_dec},
+		{"%b", printf_bin}
 	};
 
 	va_list args; /* Variable arguments list */
@@ -36,7 +37,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 4;
+		j = 5;
 		while (j >= 0)
 		{
 			/*Check if the current format matches any specifier*/
