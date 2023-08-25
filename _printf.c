@@ -17,23 +17,17 @@ int _printf(const char *format, ...)
 {
 	/* Array of conversion specifiers and their corresponding functions */
 	convert_match m[] = {
-		{"%c", printf_char},
-		{"%s", printf_string},
-		{"%%", printf_37},
-		{"%i", printf_int},
-		{"%d", printf_dec},
+		{"%c", printf_char}, {"%s", printf_string}, {"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec},
 		{"%b", printf_bin},
 		{"%u", printf_unsigned},
-		{"%o", printf_oct},
-		{"%x", printf_hex},
-		{"%X", printf_HEX}
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX}
 	};
 
 	va_list args; /* Variable arguments list */
 	int i = 0, j, len = 0; /* Iteration and length tracking variables */
 
 	va_start(args, format); /* Initialize variable arguments list */
-
 	/* Handle edge cases: NULL format or format only contains '%' */
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
