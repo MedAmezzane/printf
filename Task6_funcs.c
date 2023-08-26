@@ -16,6 +16,18 @@ int seen_nonzero = 0;
 
 	void *addr = va_arg(val, void *);
 
+	if (addr == NULL)
+	{
+		printed_chars += _putchar('(');
+		printed_chars += _putchar('n');
+		printed_chars += _putchar('u');
+		printed_chars += _putchar('l');
+		printed_chars += _putchar('l');
+		printed_chars += _putchar(')');
+
+		return (6);
+	}
+
 	printed_chars += _putchar('0');
 	printed_chars += _putchar('x');
 	ptr = (uintptr_t)addr;
