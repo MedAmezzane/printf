@@ -33,5 +33,6 @@ int printf_adress(va_list val)
 	/*Print the hexadecimal value of the pointer*/
 	num_printed_chars = printf_HEX_INT(ptr_value);
 
-	return (num_printed_chars + 2); /*Return the total number of characters printed*/
+	/*Return the total number of characters printed*/
+	return (num_printed_chars + 2);
 }
