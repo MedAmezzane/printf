@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdint.h>
 /**
  * printf_adress - Prints the hexadecimal representation of a pointer
  * @val: The va_list containing the pointer to be printed
@@ -8,31 +9,28 @@
  */
 int printf_adress(va_list val)
 {
-	void *ptr;
-	char *nil_str = "(nil)";
-	long int ptr_value;
-	int num_printed_chars;
-	int i;
+int printed_chars = 0;
+uintptr_t ptr;
+int shift;
+int seen_nonzero = 0;
 
-	ptr = va_arg(val, void *);
+	void *addr = va_arg(val, void *);
 
-	if (ptr == NULL)
+	printed_chars += _putchar('0');
+	printed_chars += _putchar('x');
+	ptr = (uintptr_t)addr;
+	shift = (sizeof(uintptr_t) * 8) - 4;
+	while (shift >= 0)
 	{
-		for (i = 0; nil_str[i] != '\0'; i++)
+		int digit = (ptr >> shift) & 0xF;
+
+		if (digit != 0 || seen_nonzero)
 		{
-			_putchar(nil_str[i]);
+			printed_chars += _putchar("0123456789abcdef"[digit]);
+			seen_nonzero = 1;
 		}
-		return (i); /*Return the number of characters printed*/
+		shift -= 4;
 	}
-
-	ptr_value = (unsigned long int)ptr;
-
-	_putchar('0');
-	_putchar('x');
-
-	/*Print the hexadecimal value of the pointer*/
-	num_printed_chars = printf_HEX_INT(ptr_value);
-
-	/*Return the total number of characters printed*/
-	return (num_printed_chars + 2);
+return (printed_chars);
 }
+
