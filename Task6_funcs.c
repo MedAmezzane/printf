@@ -20,12 +20,11 @@ int seen_nonzero = 0;
 	{
 		printed_chars += _putchar('(');
 		printed_chars += _putchar('n');
-		printed_chars += _putchar('u');
-		printed_chars += _putchar('l');
+		printed_chars += _putchar('i');
 		printed_chars += _putchar('l');
 		printed_chars += _putchar(')');
 
-		return (6);
+		return (5);
 	}
 
 	printed_chars += _putchar('0');
