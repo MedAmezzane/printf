@@ -134,19 +134,19 @@ int printf_hex(va_list val)
 	return (counter); /*Return the number of characters printed*/
 }
 
+
 /**
- * printf_HEX - Prints an unsigned integer as a hexadecimal number in uppercase
+ * printf_HEX_INT - Prints an unsigned integer as a hexadecimal number in uppercase
  * @val: The va_list containing the unsigned integer to be printed
  * Return: The number of characters printed
  *
  * Author: MedAMEZZANE & Abdelouahed OUARRAR
  */
-int printf_HEX(va_list val)
+int printf_HEX_INT(unsigned int num)
 {
 	int i;
 	int *hex_digits;
 	int counter = 0;
-	unsigned int num = va_arg(val, unsigned int);
 	unsigned int temp = num;
 
 	/* Calculate the number of hexadecimal digits in the number */
@@ -178,3 +178,18 @@ int printf_HEX(va_list val)
 	free(hex_digits); /*Free the allocated memory*/
 	return (counter); /*Return the number of characters printed*/
 }
+
+/**
+ * printf_HEX - Prints an unsigned integer as a hexadecimal number in uppercase
+ * @val: The va_list containing the unsigned integer to be printed
+ * Return: The number of characters printed
+ *
+ * Author: MedAMEZZANE & Abdelouahed OUARRAR
+ */
+int printf_HEX(va_list val)
+{
+	unsigned int num = va_arg(val, unsigned int);
+	int counter = printf_HEX_INT(num);
+	return (counter);
+}
+

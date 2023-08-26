@@ -41,5 +41,5 @@ int printf_unsigned(va_list args);
 int printf_oct(va_list val);
 int printf_hex(va_list val);
 int printf_HEX(va_list val);
-
+int printf_S(va_list val);
 #endif
